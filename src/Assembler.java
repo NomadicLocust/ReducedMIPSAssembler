@@ -16,8 +16,8 @@ public class Assembler {
 	public static HashMap<String, String> registers = new HashMap<String, String>();
 	public static HashMap<String, Integer> labels = new HashMap<String, Integer>();
     
-    private Assembler() {
-    }
+	private Assembler() {
+	}
 
 	public static void initInstructionCodes() {
 		// R-Type Instructions
@@ -190,14 +190,14 @@ public class Assembler {
 		return bin;
 	}
 	
-    // Returns the register address as a String
-    public static String getRegister(String reg) {
-        // Numeral address reference, e.g. $8
-        if (reg.matches("[$]\\d+"))
-            return parseUnsigned5BitBin( Integer.parseInt(reg.substring(1)) );
-        // Standard reference, e.g. $t0
-        return registers.get(reg);
-    }
+	// Returns the register address as a String
+	public static String getRegister(String reg) {
+		// Numeral address reference, e.g. $8
+		if (reg.matches("[$]\\d+"))
+			return parseUnsigned5BitBin( Integer.parseInt(reg.substring(1)) );
+		// Standard reference, e.g. $t0
+		return registers.get(reg);
+	}
 	
 	// Instructions: add, sub, and, or, nor, slt
 	public static instructionParser instructionR_std = new instructionParser() {
@@ -368,7 +368,7 @@ public class Assembler {
 			scanner.close();
 		}
 		catch (FileNotFoundException e) {
-            // Do not print anything since parseLabels() already took care of that.
+            		// Do not print anything since parseLabels() already took care of that.
 			// System.out.println("File not found.");
 		}
 	}
