@@ -21,7 +21,7 @@ public class Assembler {
 
 	public static void initInstructionCodes() {
 		// R-Type Instructions
-		instructionCodes.put("add",	"100000");
+		instructionCodes.put("add", "100000");
 		instructionCodes.put("sub", "100010");
 		instructionCodes.put("and", "100100");
 		instructionCodes.put("or",  "100101");
