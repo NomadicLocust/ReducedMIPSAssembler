@@ -1,7 +1,7 @@
 // Partial MIPS Assembler
 //
-// Author: Sami Halimi
-// Last Edited: 2/28/14
+// Author: Sam H.
+// Last Edited: 3/10/14
 
 import java.util.Scanner;
 

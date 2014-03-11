@@ -15,7 +15,7 @@ public class Assembler {
 	public static HashMap<String, instructionParser> instructions = new HashMap<String, instructionParser>();
 	public static HashMap<String, String> registers = new HashMap<String, String>();
 	public static HashMap<String, Integer> labels = new HashMap<String, Integer>();
-
+    
     private Assembler() {
     }
 
