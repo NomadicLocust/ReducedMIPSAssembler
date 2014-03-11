@@ -1,1 +1,1 @@
-javac Main.java -d ../bin
+javac ReducedMIPS.java -d ../bin

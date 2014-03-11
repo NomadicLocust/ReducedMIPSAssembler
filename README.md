@@ -4,7 +4,7 @@ Reduced MIPS Assembler
 This is a Java-based assembler with support for a reduced MIPS instruction set.
 
 To assemble a file, run:
-`java reducedmips filename [-d]`
+`java ReducedMIPS filename [-d]`
 
 (-d sets debug mode)
 
