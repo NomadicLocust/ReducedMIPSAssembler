@@ -23,6 +23,7 @@ The following instructions are supported:
 * sll $rd, $rt, shamt
 * srl $rd, $rt, shamt
 * jr $rs
+
 -
 **I-Type**
 * addi $rt, $rs, imm
@@ -32,6 +33,7 @@ The following instructions are supported:
 * bne $rs, $rt, offset
 * lw $rt, offset($rs)
 * sw $rt, offset($rs)
+
 -
 **J-Type**
 * j target
