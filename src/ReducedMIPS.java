@@ -17,7 +17,7 @@ public class ReducedMIPS {
             filename = args[0];
             for (int i=1; i<args.length; i++) {
                 // Set debug mode if command line option is set
-                if (args[i].equals("-d")) Assembler.debugMode = true;
+                if (args[i].equals("-d")) Assembler.setDebugMode(true);
                 // else if (args[i].equals("-p")) printToConsole = true;
             }
 		}

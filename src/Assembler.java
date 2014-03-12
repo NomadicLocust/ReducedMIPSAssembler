@@ -273,6 +273,11 @@ public class Assembler {
 			System.out.println(opcode + address);
 		}
 	};
+
+	// Set debug mode, which shows detailed parsing information
+	public static void setDebugMode(boolean mode) {
+		debugMode = mode;
+	}
 	
 	// Run assembly process on file with given filename
 	public static void assembleFile(String filename) {
