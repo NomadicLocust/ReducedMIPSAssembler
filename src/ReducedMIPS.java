@@ -13,8 +13,8 @@ public class ReducedMIPS {
 		String filename;
 		
 		// Initialize HashMaps
-		Assembler.initInstructionCodes();
-		Assembler.initInstructions();
+		Instructions.initInstructionCodes();
+		Instructions.initInstructions();
 		Assembler.initRegisterCodes();
 		
 		// Get filename from command line if provided, else use stdin
