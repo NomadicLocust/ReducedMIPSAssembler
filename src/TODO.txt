@@ -1,10 +1,6 @@
 TO DO
 --------
-Move instructions to Instructions.java
-Write output to a file ??
-
-Ask Dr. Nix about why I had to subtract 1 in my branch statement immediate value
-
+Nothing for now!
 
 If extending instruction set to include R-Type functions with opcodes other than 1,
 consider using HashMap value of format "R 000000 010000" where first set of 6 bits
