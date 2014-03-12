@@ -12,11 +12,6 @@ public class ReducedMIPS {
 		Scanner sc = new Scanner(System.in);
 		String filename;
 		
-		// Initialize HashMaps
-		Assembler.initInstructionCodes();
-		Assembler.initInstructions();
-		Assembler.initRegisterCodes();
-		
 		// Get filename from command line if provided, else use stdin
 		if (args.length > 0) {
             filename = args[0];
