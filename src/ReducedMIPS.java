@@ -1,4 +1,4 @@
-// Partial MIPS Assembler
+// Reduced MIPS Assembler
 //
 // Author: Sam H.
 // Last Edited: 3/10/14
