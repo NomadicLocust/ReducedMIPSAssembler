@@ -33,7 +33,7 @@ public class Assembler {
 		
 		// I-Type Instructions
 		instructionCodes.put("addi", "001000");
-		instructionCodes.put("andi", "001110");
+		instructionCodes.put("andi", "001100");
 		instructionCodes.put("ori",  "001101");
 		instructionCodes.put("beq",  "000100");
 		instructionCodes.put("bne",  "000101");
