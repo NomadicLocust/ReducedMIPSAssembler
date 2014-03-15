@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class Assembler {
 	
 	private static File file;
-	private static int lineNumber = 1;
+	private static int lineNumber = 0;
 	
 	private static boolean debugMode = false;
 	
@@ -136,7 +136,7 @@ public class Assembler {
 		String bin = Integer.toBinaryString(dec);
 		
 		int l = bin.length();
-		if (bin.length() < 5) {
+		if (l < 5) {
 			for (int i=0; i<(5-l); i++)
 				bin = "0" + bin;
 		}
@@ -150,7 +150,7 @@ public class Assembler {
 		String bin = Integer.toBinaryString(dec);
 		
 		int l = bin.length();
-		if (bin.length() < 16 && dec >= 0) {
+		if (l < 16 && dec >= 0) {
 			for (int i=0; i<(16-l); i++)
 				bin = "0" + bin;
 		}
@@ -167,12 +167,24 @@ public class Assembler {
 		String bin = Integer.toBinaryString(dec);
 		
 		int l = bin.length();
-		if (bin.length() < 32) {
+		if (l < 32) {
 			for (int i=0; i<(32-l); i++)
 				bin = "0" + bin;
 		}
 		
 		return bin;
+	}
+
+	private static String parse8NibbleHex(int dec) {
+		String hex =  Integer.toHexString(dec);
+
+		int l = hex.length();
+		if (l < 8) {
+			for (int i=0; i<(8-l); i++)
+				hex = "0" + hex;
+		}
+		
+		return hex;
 	}
 	
 	// Returns the register address as a String
@@ -267,8 +279,8 @@ public class Assembler {
 		public void parse(String [] parts) {
 			String opcode = instructionCodes.get(parts[0]);
 			// Compute the jump address and crop to 26 bits
-			int truncAddress = 0x00400000 + 4*(labels.get(parts[1]) - 1); 
-			String address = parseUnsigned32BitBin(truncAddress).substring(4, 30);
+			int fullAddress = 0x00400000 + 4*labels.get(parts[1]); 
+			String address = parseUnsigned32BitBin(fullAddress).substring(4, 30);
 			
 			System.out.println(opcode + address);
 		}
@@ -318,7 +330,7 @@ public class Assembler {
 			}
 			
 			scanner.close();
-			lineNumber = 1;
+			lineNumber = 0;
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("File not found.");
@@ -354,6 +366,11 @@ public class Assembler {
 					System.out.print(lineNumber + ": ");
 				}
 				
+				// Print line number (in hex format)
+				if (!debugMode) {
+					int fullAddress = 0x00400000 + 4*lineNumber;
+					System.out.print(parse8NibbleHex(fullAddress) + ": ");
+				}
 				// Parse and write instruction
 				instructions.get(parts[0]).parse(parts);
 				
