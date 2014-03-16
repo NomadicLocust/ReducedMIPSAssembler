@@ -16,6 +16,7 @@ public class Assembler {
 	private static HashMap<String, String> registers = new HashMap<String, String>();
 	private static HashMap<String, Integer> labels = new HashMap<String, Integer>();
     
+	// Prevent an object of this class from being created
 	private Assembler() {
 	}
 
@@ -125,6 +126,7 @@ public class Assembler {
 		registers.put("$ra",   "11111");
 	}
 	
+	// Interface to allow instruction mapping to a parse function
 	private interface instructionParser {
 		void parse(String [] parts);		
 	}
@@ -175,7 +177,8 @@ public class Assembler {
 		return bin;
 	}
 
-	private static String parse8NibbleHex(int dec) {
+	// Returns 8-digit (8-nibble) hexadecimal string representation of decimal value
+	private static String parse8DigitHex(int dec) {
 		String hex =  Integer.toHexString(dec);
 
 		int l = hex.length();
@@ -318,7 +321,7 @@ public class Assembler {
 					String labelName = line.substring(0, line.indexOf(':'));
 					labels.put(labelName, lineNumber);
 					// Debugging mode displays label names & their associated line numbers
-					if (debugMode) System.out.println(labelName + ":  " + lineNumber);
+					if (debugMode) System.out.println(labelName + ":  " + (lineNumber + 1));
 				}
 				
 				// Remove labels from the line
@@ -363,13 +366,13 @@ public class Assembler {
 					System.out.println();
 					for (int i=0; i<parts.length; i++) System.out.print("[" + parts[i] + "] ");
 					System.out.println();
-					System.out.print(lineNumber + ": ");
+					System.out.print((lineNumber + 1) + ": ");
 				}
 				
 				// Print line number (in hex format)
 				if (!debugMode) {
 					int fullAddress = 0x00400000 + 4*lineNumber;
-					System.out.print(parse8NibbleHex(fullAddress) + ": ");
+					System.out.print(parse8DigitHex(fullAddress) + ": ");
 				}
 				// Parse and write instruction
 				instructions.get(parts[0]).parse(parts);

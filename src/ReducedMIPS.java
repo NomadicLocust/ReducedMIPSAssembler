@@ -1,7 +1,7 @@
 // Reduced MIPS Assembler
 //
 // Author: Sam H.
-// Last Edited: 3/14/14
+// Last Edited: 3/16/14
 
 import java.util.Scanner;
 
